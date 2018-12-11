@@ -11,24 +11,23 @@ import RealmSwift
 
 class CreateExpense: UIViewController {
     
-    let myExpense = Expense()
-    
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet weak var valueTextField: UITextField!
-    @IBOutlet weak var fixedTextField: UITextField!
+    @IBOutlet weak var fixedSwitch: UISwitch!
     @IBOutlet weak var frequencyTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavigationBar()
         
     }
     
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        let myExpense = Expense()
         myExpense.name = nameTextField.text
         myExpense.value = Float(valueTextField.text!) ?? 0.0
-        if fixedTextField.text == "Yes" {
+        if fixedSwitch.isOn {
             myExpense.fixed = true
         } else {
             myExpense.fixed = false
@@ -48,14 +47,21 @@ class CreateExpense: UIViewController {
             print("error initializing realm : \(error.localizedDescription)")
         }
         print(myExpense)
-        self.performSegue(withIdentifier: "unwindToStartScreenFromExpenses", sender: self)
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "unwindToStartScreenFromExpenses", sender: self)
+    }
     
     //For the eventuality of needing this function later on
 //    func setExpenseData() {
 //
 //     }
     
+    fileprivate func setupNavigationBar() {
+        self.navigationItem.title = "Create an expense"
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.isNavigationBarHidden = false
+    }
     
 }

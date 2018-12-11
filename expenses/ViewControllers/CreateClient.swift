@@ -11,9 +11,6 @@ import RealmSwift
 
 class CreateClient: UIViewController {
     
-    let myClient = Client()
-    
-    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var positionTextField: UITextField!
@@ -21,11 +18,12 @@ class CreateClient: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavigationBar()
         
         
     }
     @IBAction func saveButtonPressed(_ sender: Any) {
+        let myClient = Client()
         myClient.firstName = firstNameTextField.text
         myClient.lastName = lastNameTextField.text
         myClient.position = positionTextField.text
@@ -44,7 +42,6 @@ class CreateClient: UIViewController {
             print("error initializing realm : \(error.localizedDescription)")
         }
         print(myClient)
-        self.performSegue(withIdentifier: "unwindToStartScreenFromClient", sender: self)
     }
 
     //For the eventuality of needing this function later on
@@ -53,5 +50,11 @@ class CreateClient: UIViewController {
 //        myClient.lastName = lastNameTextField.text
 //        myClient.position = positionTextField.text
 //    }
+    
+    fileprivate func setupNavigationBar() {
+        self.navigationItem.title = "Create a client"
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.isNavigationBarHidden = false
+    }
     
 }

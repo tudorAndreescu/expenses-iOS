@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2089A1EE21BFF0EF0041F7E2 /* ClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089A1ED21BFF0EF0041F7E2 /* ClientsViewController.swift */; };
+		2089A1F121BFF3690041F7E2 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089A1F021BFF3690041F7E2 /* ClientTableViewCell.swift */; };
+		2089A1F921C00B3A0041F7E2 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089A1F821C00B3A0041F7E2 /* ClientModel.swift */; };
 		2089F85A21BEB3BF0003D65F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089F85921BEB3BF0003D65F /* AppDelegate.swift */; };
 		2089F85C21BEB3BF0003D65F /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089F85B21BEB3BF0003D65F /* StartScreen.swift */; };
 		2089F85F21BEB3BF0003D65F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2089F85D21BEB3BF0003D65F /* Main.storyboard */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2089A1ED21BFF0EF0041F7E2 /* ClientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewController.swift; sourceTree = "<group>"; };
+		2089A1F021BFF3690041F7E2 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
+		2089A1F821C00B3A0041F7E2 /* ClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
 		2089F85621BEB3BF0003D65F /* expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2089F85921BEB3BF0003D65F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2089F85B21BEB3BF0003D65F /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
@@ -87,6 +93,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2089A1EF21BFF3470041F7E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2089A1F021BFF3690041F7E2 /* ClientTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2089A1F621C00AF60041F7E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2089A1F721C00B2B0041F7E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2089A1F821C00B3A0041F7E2 /* ClientModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2089F84D21BEB3BE0003D65F = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +141,9 @@
 		2089F85821BEB3BF0003D65F /* expenses */ = {
 			isa = PBXGroup;
 			children = (
+				2089A1F721C00B2B0041F7E2 /* Model */,
+				2089A1F621C00AF60041F7E2 /* Services */,
+				2089A1EF21BFF3470041F7E2 /* Views */,
 				2089F88821BEB4890003D65F /* ViewControllers */,
 				2089F88721BEB4810003D65F /* Classes */,
 				2089F85921BEB3BF0003D65F /* AppDelegate.swift */,
@@ -156,6 +188,7 @@
 				2089F85B21BEB3BF0003D65F /* StartScreen.swift */,
 				2089F88D21BEB5880003D65F /* CreateClient.swift */,
 				2089F88F21BEB5960003D65F /* CreateExpense.swift */,
+				2089A1ED21BFF0EF0041F7E2 /* ClientsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -353,9 +386,12 @@
 			files = (
 				2089F88E21BEB5880003D65F /* CreateClient.swift in Sources */,
 				2089F88A21BEB4C90003D65F /* Expense.swift in Sources */,
+				2089A1F921C00B3A0041F7E2 /* ClientModel.swift in Sources */,
+				2089A1EE21BFF0EF0041F7E2 /* ClientsViewController.swift in Sources */,
 				2089F89021BEB5960003D65F /* CreateExpense.swift in Sources */,
 				2089F85C21BEB3BF0003D65F /* StartScreen.swift in Sources */,
 				2089F88C21BEB4D40003D65F /* Client.swift in Sources */,
+				2089A1F121BFF3690041F7E2 /* ClientTableViewCell.swift in Sources */,
 				2089F85A21BEB3BF0003D65F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
