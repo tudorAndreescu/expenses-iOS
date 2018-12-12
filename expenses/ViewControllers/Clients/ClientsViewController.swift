@@ -39,7 +39,6 @@ class ClientsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return FirstNames.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: ClientTableViewCell = tableView.dequeueReusableCell(withIdentifier: "clientsCell", for: indexPath) as? ClientTableViewCell {
             cell.nameLabel.text = "\(FirstNames[indexPath.row]) \(LastNames[indexPath.row])"
@@ -47,6 +46,17 @@ class ClientsViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             return ClientTableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, nil) in
+            print("deleted")
+        }
+        delete.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        delete.image = #imageLiteral(resourceName: "swipe-delete")
+        let config = UISwipeActionsConfiguration(actions: [delete])
+        config.performsFirstActionWithFullSwipe = false
+        return config
     }
     
     func queryClients() {
@@ -64,5 +74,7 @@ class ClientsViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("error initializing realm : \(error.localizedDescription)")
         }
     }
+    
+    //
     
 }

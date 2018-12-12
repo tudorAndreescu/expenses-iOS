@@ -1,5 +1,5 @@
 //
-//  CreateExpense.swift
+//  CreateClient.swift
 //  expenses
 //
 //  Created by Danut Pralea on 10/12/2018.
@@ -9,36 +9,31 @@
 import UIKit
 import RealmSwift
 
-class CreateExpense: UIViewController {
+class CreateClientViewController: UIViewController {
     
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet weak var valueTextField: UITextField!
-    @IBOutlet weak var fixedSwitch: UISwitch!
-    @IBOutlet weak var frequencyTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var positionTextField: UITextField!
+    @IBOutlet weak var saveClientButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         
+        
     }
-    
-    
     @IBAction func saveButtonPressed(_ sender: Any) {
-        let myExpense = Expense()
-        myExpense.name = nameTextField.text
-        myExpense.value = Float(valueTextField.text!) ?? 0.0
-        if fixedSwitch.isOn {
-            myExpense.fixed = true
-        } else {
-            myExpense.fixed = false
-        }
+        let myClient = Client()
+        myClient.firstName = firstNameTextField.text
+        myClient.lastName = lastNameTextField.text
+        myClient.position = positionTextField.text
         do {
             let realm = try Realm()
             print(Realm.Configuration.defaultConfiguration.fileURL!)
             do {
                 try realm.write {
-                    //setExpenseData()
-                    realm.add(myExpense)
+                    //setClientData()
+                    realm.add(myClient)
                 }
             } catch let addError {
                 print("error adding Client object : \(addError.localizedDescription)")
@@ -46,20 +41,18 @@ class CreateExpense: UIViewController {
         } catch let error {
             print("error initializing realm : \(error.localizedDescription)")
         }
-        print(myExpense)
+        print(myClient)
     }
-    
-    @IBAction func cancelButtonPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "unwindToStartScreenFromExpenses", sender: self)
-    }
-    
+
     //For the eventuality of needing this function later on
-//    func setExpenseData() {
-//
-//     }
+//    func setClientData() {
+//        myClient.firstName = firstNameTextField.text
+//        myClient.lastName = lastNameTextField.text
+//        myClient.position = positionTextField.text
+//    }
     
     fileprivate func setupNavigationBar() {
-        self.navigationItem.title = "Create an expense"
+        self.navigationItem.title = "Create a client"
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
     }
